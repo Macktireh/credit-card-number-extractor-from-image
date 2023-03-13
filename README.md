@@ -1,6 +1,6 @@
 # Credit Card Number Extractor From Image
 
-Il s'agit de l'API d'extraction de numéro de carte de crédit partir d'une image.
+Il s'agit d'une API d'extraction de numéro de carte crédit partir d'une image.
 
 ## Démarrage rapide
 
