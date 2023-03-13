@@ -1,0 +1,17 @@
+version: '3'
+
+name: extract-card-number
+
+services:
+
+  api: 
+    build: 
+      context: .
+      dockerfile: ./compose/development/Dockerfile
+    image: extract-card-number-dev
+    container_name: extract-card-number-dev
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    command: /start

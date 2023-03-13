@@ -1,0 +1,7 @@
+__pycache__/
+.venv
+.git
+.gitignore
+static/
+notebook.ipynb
+README.md
