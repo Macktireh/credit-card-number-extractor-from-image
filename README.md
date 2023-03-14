@@ -9,7 +9,7 @@ Il s'agit d'une API d'extraction de numéro de carte crédit partir d'une image.
 ### 2. exécuter la commande suivante dans un terminal
 
 ```bash
-docker run -p 8000:8000 macktireh/extract-card-number:v1
+docker run -p 8000:8000 macktireh/extract-card-number:v2
 ```
 
 Visiter le lien de la redoc d'API http://localhost:8000 sur votre navigateur, vous pouvez utiliser Postman pour tester l'API ou toute autre client.
