@@ -2,6 +2,7 @@ import os
 import cv2
 import pytesseract
 
+
 if os.name == 'nt':
     pytesseract.pytesseract.tesseract_cmd = r'D:\application\Tesseract-OCR\tesseract.exe'
 
@@ -11,8 +12,7 @@ class ExtarctorCardNumberFromImage:
     def __init__(self, image) -> None:
         self.image = image
     
-    def imageToString(self) -> None:
-            
+    def imageToString(self) -> str | None: 
         try:
             gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
             _, threshed = cv2.threshold(gray, 127, 255, cv2.THRESH_TRUNC)
@@ -22,11 +22,13 @@ class ExtarctorCardNumberFromImage:
             return None
     
     @staticmethod
-    def getCardNumber(list_text: list) -> str | None:
+    def getCardNumber(list_text: list) -> list[str | None]:
+        texts = []
         for text in list_text:
-            if len(text) == 12 and text.isdigit(): return text
+            if len(text) == 12 and text.isdigit():
+                texts.append(text)
             elif len(text) > 12:
-                text_split = text.split(' ')
-                for i in text_split:
-                    if len(i) == 12 and i.isdigit(): return i
-        return None
+                for i in text.split(' '):
+                    if len(i) == 12 and i.isdigit():
+                        texts.append(i)
+        return texts
