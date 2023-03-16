@@ -12,6 +12,6 @@ Il s'agit d'une API d'extraction de numéro de carte crédit partir d'une image.
 docker run -p 8000:8000 macktireh/extract-card-number:v2
 ```
 
-Visiter le lien de la redoc d'API http://localhost:8000 sur votre navigateur, vous pouvez utiliser Postman pour tester l'API ou toute autre client.
+Cela va lancer l'application sur votre ordinateur et vous pourrez accéder à l'API via votre navigateur sur http://localhost:8000 ou un outil de requête tel que Postman.
 
 C'est fait 🚀
