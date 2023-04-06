@@ -6,7 +6,7 @@ url = "http://localhost:8000/extract-card-number"
 
 async def main() -> None:
     async with httpx.AsyncClient() as client:
-        files = {'image': open('./static/card/all_500.jpg', 'rb')}
+        files = {'image': open('./static/card/all_2000.jpg', 'rb')}
         response = await client.post(url, files=files)
         body = response.json()
         if response.status_code == 200:
