@@ -2,12 +2,13 @@ import httpx
 import asyncio
 
 
-url = "http://localhost:8000/extract-card-number"
+url_v1 = "http://127.0.0.1:8000/api/v1/extract-card-number"
+url_v2 = "http://127.0.0.1:8000/api/v2/extract-card-number"
 
 async def main() -> None:
     async with httpx.AsyncClient() as client:
         files = {'image': open('./static/card/all_2000.jpg', 'rb')}
-        response = await client.post(url, files=files)
+        response = await client.post(url_v1, files=files)
         body = response.json()
         if response.status_code == 200:
             card_number = body.get('cardNumbers')
