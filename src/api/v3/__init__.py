@@ -3,13 +3,15 @@ import numpy as np
 
 from fastapi import APIRouter, HTTPException, UploadFile, status
 
-from src.api.v1.schemas import Response, ResponseError, responseSchema
-from src.api.v1.services import ExtarctorCardNumberFromImage
+from src.api.v3.schemas import Response, ResponseError, responseSchema
+from src.api.v3.services import ExtarctorCardNumberFromImage
+
 
 router = APIRouter()
 
+
 @router.post("/extract-card-number", responses=responseSchema)
-async def extract_card_number_v1(image: UploadFile | None = None) -> Response:
+async def extract_card_number_v3(image: UploadFile | None = None) -> Response:
     if image is None:
         res = ResponseError(message="image field is required")
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=res.dict())
@@ -20,8 +22,9 @@ async def extract_card_number_v1(image: UploadFile | None = None) -> Response:
     extractor = ExtarctorCardNumberFromImage(img)
     text = extractor.imageToString()
 
+    listCardNumbers = extractor.get_card_number(text.split())
     try:
-        listCardNumbers = extractor.get_card_number(text.split())
+        pass
     except Exception as e:
         res  = ResponseError(message="something went wrong")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=res.dict())

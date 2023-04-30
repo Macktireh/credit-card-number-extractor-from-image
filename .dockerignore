@@ -1,17 +1,19 @@
 __pycache__/
 .venv
+.vscode
 .git
+.github
 .gitignore
-static/
+assests/
+test/
 notebook.ipynb
 README.md
 client.py
-test.py
 utils.py
 pytest.ini
 docker-compose.yml
+Dockerfile
 
-.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

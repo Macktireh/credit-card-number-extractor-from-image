@@ -6,9 +6,7 @@ from fastapi import APIRouter, HTTPException, UploadFile, status
 from src.api.v2.schemas import Response, ResponseError, responseSchema
 from src.api.v2.services import ExtarctorCardNumberFromImage
 
-
 router = APIRouter()
-
 
 @router.post("/extract-card-number", responses=responseSchema)
 async def extract_card_number_v2(image: UploadFile | None = None) -> Response:

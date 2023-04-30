@@ -1,13 +1,13 @@
 version: '3'
 
-name: extract-card-number
+name: extract-card-number-dev
 
 services:
 
   api: 
     build: 
       context: .
-      dockerfile: ./compose/development/Dockerfile
+      dockerfile: ./compose/local/Dockerfile
     image: extract-card-number-dev
     container_name: extract-card-number-dev
     volumes:

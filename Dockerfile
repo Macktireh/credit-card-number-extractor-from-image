@@ -11,7 +11,7 @@ RUN apt update && apt install --no-install-recommends -y && apt-get install tess
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && rm -rf /var/lib/apt/lists/*
 
-ADD . /app
+COPY . /app
 RUN pip install -r requirements.txt
 
 EXPOSE 8000

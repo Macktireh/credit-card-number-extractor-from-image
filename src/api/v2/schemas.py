@@ -1,21 +1,15 @@
 from pydantic import BaseModel
 
-from src.types import cardNumberType
-
 
 class Response(BaseModel):
-    cardNumbers: list[cardNumberType]
+    cardNumbers: list[str]
     status: str = "success"
     message: str = "card number extracted successfully"
 
     class Config:
         schema_extra = {
             "example": {
-                "cardNumbers": [
-                    {"id": 1, "code": "123456789123", "serial": "0000567891234"},
-                    {"id": 2, "code": "123456789123", "serial": "0000567891234"},
-                    {"id": 3, "code": "123456789123", "serial": "0000567891234"}
-                ],
+                "cardNumbers": ["123456789123", "123456789123", "123456789123"],
                 "status": "success",
                 "message": "card number extracted successfully",
             },
